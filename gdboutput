@@ -21,6 +21,9 @@ Breakpoint 1, main () at buffer.c:10
 (gdb) x /8wx $rsp
 0x7fffffffdd08:	0xf7a36f45	0x00007fff	0x00000000	0x00000000
 0x7fffffffdd18:	0xffffdde8	0x00007fff	0x00000000	0x00000001
+
+value at 0x7ffff7a36f45 <__libc_start_main+245>:	0x94e8c789
+
 (gdb) stepi
 0x0000000000400508	10	{
 7: $rip = (void (*)()) 0x400508 <main+1>
