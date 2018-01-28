@@ -1,0 +1,43 @@
+Dump of assembler code for function main:
+7       {
+   0x00000000004015b0 <+0>:     push   rbp
+   0x00000000004015b1 <+1>:     mov    rbp,rsp
+   0x00000000004015b4 <+4>:     sub    rsp,0x70
+   0x00000000004015b8 <+8>:     mov    DWORD PTR [rbp+0x10],ecx
+   0x00000000004015bb <+11>:    mov    QWORD PTR [rbp+0x18],rdx
+   0x00000000004015bf <+15>:    call   0x401780 <__main>
+
+8         volatile int modified;
+9         char buffer[64];
+10
+11        modified = 10;
+   0x00000000004015c4 <+20>:    mov    DWORD PTR [rbp-0x4],0xa
+
+12        gets(buffer);
+   0x00000000004015cb <+27>:    lea    rax,[rbp-0x50]
+   0x00000000004015cf <+31>:    mov    rcx,rax
+   0x00000000004015d2 <+34>:    call   0x402bb0 <gets>
+
+13
+14        if(modified == 0x61626364) {
+   0x00000000004015d7 <+39>:    mov    eax,DWORD PTR [rbp-0x4]
+   0x00000000004015da <+42>:    cmp    eax,0x61626364
+   0x00000000004015df <+47>:    jne    0x4015ef <main+63>
+
+15            printf("you have correctly got the variable to the right value\n");
+   0x00000000004015e1 <+49>:    lea    rcx,[rip+0x2a48]        # 0x404030
+   0x00000000004015e8 <+56>:    call   0x402b90 <puts>
+   0x00000000004015ed <+61>:    jmp    0x401600 <main+80>
+
+16        } else {
+17            printf("Try again, you got 0x%08x\n", modified);
+   0x00000000004015ef <+63>:    mov    eax,DWORD PTR [rbp-0x4]
+   0x00000000004015f2 <+66>:    mov    edx,eax
+   0x00000000004015f4 <+68>:    lea    rcx,[rip+0x2a6c]        # 0x404067
+   0x00000000004015fb <+75>:    call   0x402b98 <printf>
+   0x0000000000401600 <+80>:    mov    eax,0x0
+
+18        }
+19      }   0x0000000000401605 <+85>:   add    rsp,0x70
+   0x0000000000401609 <+89>:    pop    rbp
+   0x000000000040160a <+90>:    ret
